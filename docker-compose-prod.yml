@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  frontend1:
+    image: jager777/234-deploylab-frontend:latest  # 使用最新构建的前端镜像
+    ports:
+      - "8086:80"  # 映射到 8086 端口
+    networks:
+      - app-network
+
+  frontend2:
+    image: jager777/234-deploylab-frontend:latest  # 使用相同的镜像
+    ports:
+      - "9999:80"  # 映射到 9999 端口
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
